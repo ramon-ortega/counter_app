@@ -1,5 +1,4 @@
 # counter_app
-<<<<<<< HEAD
 
 A new Flutter project.
 
@@ -17,4 +16,5 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 =======
 This is a project using the initial counter app in Flutter implementing two design patterns: Provider and BLoC
->>>>>>> 046d6034cd577345ddd8add34bf780f709cd2fd9
+
+The project has two branches, rama-bloc where implements bloc and rama-provider where implements provider.
