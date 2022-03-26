@@ -1,4 +1,6 @@
+import 'package:counter_app/providers/counter_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -7,9 +9,13 @@ class MyHomePage extends StatelessWidget {
 
     @override
   Widget build(BuildContext context) {
+
+    final counterProvider = Provider.of<CounterProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -19,7 +25,8 @@ class MyHomePage extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Text(
-              '0',
+              // '10',
+              counterProvider.counter.toString(),
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
@@ -32,14 +39,14 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             FloatingActionButton(
-              onPressed: () => print('Incrementar'),
+              onPressed: () => counterProvider.increment(),
               tooltip: 'Increment',
               child: const Icon(Icons.add),
             ),
             FloatingActionButton(
-              onPressed: () => print('Decrementar'),
+              onPressed: () => counterProvider.decrement(),
               tooltip: 'Decrement',
-              child: const Icon(Icons.add),
+              child: const Icon(Icons.remove),
             ),
           ],
         ),
